@@ -1,7 +1,6 @@
 import os
 import re
 
-# This script inserts your personal info into the main method of all .java files.
 directory = r'c:\Users\ADITYA\Desktop\MITS\4thsem\JAVA'
 target_line = 'System.out.println("ADITYA KUMAR SINGH"+"\\n"+"BTAD24O1005");'
 
@@ -12,18 +11,15 @@ for file_name in java_files:
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Skip if target line is already in the file
     if target_line in content:
         continue
 
-    # Find the main method signature and its opening brace
     main_pattern = re.compile(r'(public\s+static\s+void\s+main\s*\([^)]*\)\s*\{)', re.MULTILINE)
     
     match = main_pattern.search(content)
     if match:
         insertion_point = match.end()
-        
-        # Determine indentation
+
         line_start = content.rfind('\n', 0, match.start()) + 1
         indentation = ''
         for char in content[line_start:match.start()]:
@@ -39,5 +35,4 @@ for file_name in java_files:
             f.write(new_content)
         print(f"Inserted into {file_name}")
     else:
-        # print(f"Skipping {file_name}: No main method found.")
         pass
