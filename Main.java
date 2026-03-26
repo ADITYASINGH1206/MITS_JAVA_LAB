@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) {
+        System.out.println("ADITYA KUMAR SINGH"+"\n"+"BTAD24O1005");
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter your name: ");
