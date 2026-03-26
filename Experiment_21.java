@@ -14,3 +14,11 @@ public class Experiment_21 {
         }
     }
 }
+
+class MyException extends Exception 
+{
+    MyException(String msg) 
+{
+        super(msg);
+    }
+}
